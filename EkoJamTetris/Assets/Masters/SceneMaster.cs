@@ -7,9 +7,23 @@ public class SceneMaster : MonoBehaviour
 {
     private static bool gamePaused = false;
 
+    private static GameObject sceneFadingMaster;
+
+    private void Start()
+    {
+        sceneFadingMaster = GameObject.FindGameObjectWithTag("SceneFadeMaster");
+    }
+
     public static void OpenScene(int level)
     {
-        SceneManager.LoadScene(level);
+        if (sceneFadingMaster != null)
+        {
+            sceneFadingMaster.GetComponent<SceneChanger>().FadeToLevel(level);
+        }
+        else
+        {
+            SceneManager.LoadScene(level);
+        }
     }
 
     public static void OpenMainMenu()
