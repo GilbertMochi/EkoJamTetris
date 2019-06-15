@@ -7,8 +7,8 @@ public class TheBlock : MonoBehaviour
     public Vector3 rotationPoint;
     private float previousTime;
     public float fallTime = 0.8f;
-    public static int width = 39;
-    public static int height = 21;
+    public static int width = 30;
+    public static int height = 20;
     public static Transform[,] grid = new Transform[width, height];
 
     void Start() 
@@ -52,6 +52,9 @@ public class TheBlock : MonoBehaviour
             if(!ValidMove())
             {
                 transform.position -= new Vector3(0, 1, 0);
+                FindObjectOfType<ScoreAndTimer>().AddScore(50);
+                FindObjectOfType<BlockSpawnScript>().canSelect = true;
+                FindObjectOfType<BlockSpawnScript>().playerIsPlaying = null;
                 AddToGrid();
                 CheckForLines();
                 FindObjectOfType<BlockSpawnScript>().SpawnBlock();
@@ -91,6 +94,7 @@ public class TheBlock : MonoBehaviour
             {
                 DeleteLine(i);
                 RowDown(i);
+                FindObjectOfType<ScoreAndTimer>().AddScore(1000);
             }
         }
     }
@@ -172,5 +176,8 @@ public class TheBlock : MonoBehaviour
         
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(rotationPoint+transform.position, 0.2f);
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(new Vector3(width, height, 0f), 0.2f);
     }
 }
