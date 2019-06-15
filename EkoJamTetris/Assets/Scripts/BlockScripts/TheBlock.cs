@@ -22,7 +22,6 @@ public class TheBlock : MonoBehaviour
         }
         if(firstRun)
         {
-            Debug.Log("je");
             FindObjectOfType<BlockSpawnScript>().GetGrid(grid);
             firstRun = false;
         }
