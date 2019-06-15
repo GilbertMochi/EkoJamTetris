@@ -124,6 +124,10 @@ public class BlockSpawnScript : MonoBehaviour
                 Random.Range(0.0f, 1.0f),
                 0.1f
             );
+        ParticleSystem.MainModule main = newNewCloud.transform.GetChild(1).GetComponent<ParticleSystem>().main;
+        main.startColor = randomizedCol;
+        ParticleSystem.MainModule main2 = newNewCloud.transform.GetChild(2).GetComponent<ParticleSystem>().main;
+        main2.startColor = randomizedCol;
         foreach (Transform child in newBlock.transform)
         {
             childClouds.Add(child.gameObject);
@@ -133,10 +137,13 @@ public class BlockSpawnScript : MonoBehaviour
         newNewCloud.SetActive(true);
         
         yield return new WaitForSeconds(4f);
+        randomizedCol.a = 1.0f;
         for(int i = 0; i < childClouds.Count; i++)
         {
             yield return new WaitForSeconds(2f);
-            Instantiate(cloud, childClouds[i].transform.position, Quaternion.identity, childClouds[i].transform);
+            GameObject blockCloud = Instantiate(cloud, childClouds[i].transform.position, Quaternion.identity, childClouds[i].transform);
+            ParticleSystem.MainModule main3 = blockCloud.GetComponent<ParticleSystem>().main;
+            main3.startColor = randomizedCol;
             //Instantiate(trail, childClouds[i].transform.position, Quaternion.identity, childClouds[i].transform);
         }
         spawnPointsInUse++;

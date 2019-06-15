@@ -10,6 +10,7 @@ public class TheBlock : MonoBehaviour
     public static int width = 30;
     public static int height = 20;
     public static Transform[,] grid = new Transform[width, height];
+    List<GameObject> children = new List<GameObject>();
 
     void Start() 
     {
@@ -17,6 +18,7 @@ public class TheBlock : MonoBehaviour
         {
             // Game over
         }
+        
     }
 
     void Update()

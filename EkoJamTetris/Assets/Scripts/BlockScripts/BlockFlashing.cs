@@ -17,11 +17,13 @@ public class BlockFlashing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        alpha += Mathf.Sin(Time.time+1) * 0.5f*0.02f;
+        alpha = Mathf.Abs(Mathf.Sin(Time.time*3.0f)) * 0.3f;
         Debug.Log(alpha);
         foreach (SpriteRenderer sr in childSprites)
         {
             sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, alpha);
+            ParticleSystem.MainModule main = sr.transform.GetChild(0).GetComponent<ParticleSystem>().main;
+            main.startColor = new Color(sr.color.r, sr.color.g, sr.color.b, alpha);
         }  
     }
 }

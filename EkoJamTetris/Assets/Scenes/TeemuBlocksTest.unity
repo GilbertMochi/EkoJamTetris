@@ -1057,7 +1057,7 @@ MonoBehaviour:
   spawnPointsInUse: 0
   newCloud: {fileID: 7940237638511179171, guid: ce0df0b46b9e90246b714f67a426fb23,
     type: 3}
-  cloud: {fileID: 8411780092824135273, guid: 2336ff1536950604f830c63e5e5254b6, type: 3}
+  cloud: {fileID: 128782871385073657, guid: 5d83a4de3719b7e4fa77fe203a2b9a87, type: 3}
   trail: {fileID: 7020968678094704090, guid: d6df2348fc8a7684db6667ea664feea4, type: 3}
   sspGO: {fileID: 0}
   selectableBlocks: []
