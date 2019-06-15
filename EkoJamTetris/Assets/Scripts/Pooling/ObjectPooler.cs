@@ -73,5 +73,6 @@ public class ObjectPooler : MonoBehaviour
     public void PutSpawnedObjectBackIntoPool(GameObject obj, string tag)
     {
         PoolDictionary[tag].Enqueue(obj);//put the object back into the pool to not lose it
+        obj.SetActive(false);
     }
 }
