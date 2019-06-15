@@ -8,7 +8,7 @@ public class SimpleCar : MonoBehaviour, IPooledObject
     Rigidbody2D rb;
 
     [SerializeField]
-    float forceX = 4f;
+    float forceX = 6f;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();//get rigidbody from self
