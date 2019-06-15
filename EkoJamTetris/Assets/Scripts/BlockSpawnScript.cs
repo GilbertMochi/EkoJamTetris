@@ -13,7 +13,7 @@ public class BlockSpawnScript : MonoBehaviour
 
     Vector2 GetSpawnPoint()
     {
-        Vector2 spawnPoint = mainCam.ViewportToWorldPoint(new Vector2(Random.Range(0.1f, 0.9f), 0.07f));
+        Vector2 spawnPoint = mainCam.ViewportToWorldPoint(new Vector2(Random.Range(0.2f, 0.8f), 0.2f));
         spawnPoint.x = Mathf.RoundToInt(spawnPoint.x);
         spawnPoint.y = Mathf.RoundToInt(spawnPoint.y);
         return spawnPoint;
