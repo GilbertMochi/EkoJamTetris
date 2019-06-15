@@ -4814,10 +4814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc9d16d0b1dc95d43a21bfc692f8e429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnLocations:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  SpawnLocations: []
   _SpawnLocation: {fileID: 7940237639817774034}
   SmallCloudSpawner: {fileID: 7940237638030943284}
   InitialCloudSpawner: {fileID: 8160669633476245091}

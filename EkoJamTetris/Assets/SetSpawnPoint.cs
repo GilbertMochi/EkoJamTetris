@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SetSpawnPoint : MonoBehaviour
 {
-    public List<GameObject> SpawnLocations;
+    public List<GameObject> SpawnLocations = new List<GameObject>();
 
     [SerializeField]
     GameObject _SpawnLocation;
@@ -15,7 +15,7 @@ public class SetSpawnPoint : MonoBehaviour
 
     int _Index;
 
-    private void Start()
+    private void OnEnable() 
     {
         _Index = 0;
         if (SpawnLocations.Count < 1)
