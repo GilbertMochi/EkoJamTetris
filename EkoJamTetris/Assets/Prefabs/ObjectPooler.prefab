@@ -45,5 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pools:
   - tag: SimpleCar
-    prefab: {fileID: 0}
+    prefab: {fileID: 6517394261192268481, guid: 74729005ebd78ff4a9f9230a8ef24584,
+      type: 3}
+    size: 20
+  - tag: House
+    prefab: {fileID: 1300801257662792745, guid: a4183009396229d4b89e1bdeb79c554f,
+      type: 3}
     size: 10

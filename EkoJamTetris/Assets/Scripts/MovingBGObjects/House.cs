@@ -5,6 +5,7 @@ using UnityEngine;
 public class House : MonoBehaviour, IPooledObject
 {
     Animator anim;
+    public ParticleSystem dust;
     ObjectPooler OP;
     public float lifeTime = 5f;
     float t;
@@ -14,6 +15,7 @@ public class House : MonoBehaviour, IPooledObject
     {
         OP = ObjectPooler.Instance;
         anim = GetComponent<Animator>();
+        //dust = GetComponentInChildren<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -58,5 +60,14 @@ public class House : MonoBehaviour, IPooledObject
     {
         anim.SetBool("Disappear", true);
         anim.SetBool("Appear", false);
+    }
+
+    public void playDust()
+    {
+        dust.Play();
+    }
+    public void stopDust()
+    {
+        dust.Stop();
     }
 }
