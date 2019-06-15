@@ -7,9 +7,10 @@ public class TheBlock : MonoBehaviour
     public Vector3 rotationPoint;
     private float previousTime;
     public float fallTime = 0.8f;
-    public static int width = 30;
+    public static int width = 22;
     public static int height = 20;
     public static Transform[,] grid = new Transform[width, height];
+    public static bool firstRun = true;
     List<GameObject> children = new List<GameObject>();
     public GameObject newSmoke;
 
@@ -19,7 +20,12 @@ public class TheBlock : MonoBehaviour
         {
             // Game over
         }
-        
+        if(firstRun)
+        {
+            Debug.Log("je");
+            FindObjectOfType<BlockSpawnScript>().GetGrid(grid);
+            firstRun = false;
+        }
     }
 
     void Update()

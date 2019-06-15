@@ -35,8 +35,11 @@ public class BlockFlashing : MonoBehaviour
         foreach (SpriteRenderer sr in childSprites)
         {
             sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0.3f);
-            ParticleSystem.MainModule main = sr.transform.GetChild(0).GetComponent<ParticleSystem>().main;
-            main.startColor = new Color(sr.color.r, sr.color.g, sr.color.b, 0.3f);
+            if(sr.transform.childCount > 0)
+            {
+                ParticleSystem.MainModule main = sr.transform.GetChild(0).GetComponent<ParticleSystem>().main;
+                main.startColor = new Color(sr.color.r, sr.color.g, sr.color.b, 0.3f);
+            }
         }  
     }
 }

@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &798739064248278675
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 798739064248278677}
+  - component: {fileID: 798739064248278674}
+  m_Layer: 0
+  m_Name: _BlockSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &798739064248278677
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798739064248278675}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &798739064248278674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798739064248278675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd220fd1c29244245a7842b303d19bae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blocks:
+  - {fileID: 208550802100449884, guid: 13df007b45451dd4fb588082c9a2db98, type: 3}
+  - {fileID: 5128678420797173484, guid: b3c2df7c9ae411943bc2e2145af858fe, type: 3}
+  - {fileID: 4533526614648990776, guid: 2014f42757a134f43b26b9726897fa6e, type: 3}
+  - {fileID: 3764716793628578367, guid: 6eb9559f34db4c94aa257ba4082cf3fb, type: 3}
+  - {fileID: 5522324597996960146, guid: 35afd9783189d8647bf9f821e8782c57, type: 3}
+  - {fileID: 7745658826634000715, guid: fffbc613ee941b24289ea4a4b4a4cb80, type: 3}
+  - {fileID: 7980468433608052921, guid: 7298b964b33ed9349a212319f50878ca, type: 3}
+  spawnPoints:
+  - point: {fileID: 0}
+    inUse: 0
+  - point: {fileID: 0}
+    inUse: 0
+  - point: {fileID: 0}
+    inUse: 0
+  - point: {fileID: 0}
+    inUse: 0
+  - point: {fileID: 0}
+    inUse: 0
+  spawnPointsInUse: 0
+  newCloud: {fileID: 7940237638511179171, guid: ce0df0b46b9e90246b714f67a426fb23,
+    type: 3}
+  cloud: {fileID: 128782871385073657, guid: 5d83a4de3719b7e4fa77fe203a2b9a87, type: 3}
+  trail: {fileID: 7020968678094704090, guid: d6df2348fc8a7684db6667ea664feea4, type: 3}
+  sspGO: {fileID: 0}
+  selectableBlocks: []
+  canSelect: 0
+  playerIsPlaying: {fileID: 0}
+  treePowerup: 0

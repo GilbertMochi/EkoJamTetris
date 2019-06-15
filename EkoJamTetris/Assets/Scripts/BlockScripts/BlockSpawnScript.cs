@@ -28,10 +28,12 @@ public class BlockSpawnScript : MonoBehaviour
     Coroutine spawnCO;
     // Set to true to activate tree powerup
     public bool treePowerup;
+    public Transform[,] grid;
 
     // Start is called before the first frame update
     void Start()
     {
+        treePowerup = false;
         spawnPointsInUse = 0;
         mainCam = Camera.main;
         spawnCO = StartCoroutine(KeepSpawning());
@@ -59,6 +61,15 @@ public class BlockSpawnScript : MonoBehaviour
         {
             SendBlock();
         }
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            RocketPowerup(5);
+        }
+    }
+
+    public void GetGrid(Transform[,] theGrid)
+    {
+        grid = theGrid;
     }
 
     void NextSelection()
@@ -101,6 +112,31 @@ public class BlockSpawnScript : MonoBehaviour
         return spawnPoint;
     }
 
+    public void TreePowerup(GameObject tree)
+    {
+        treePowerup = true;
+        // Call make tree appear
+    }
+
+    public void RocketPowerup(int startX)
+    {
+        if(startX > grid.GetLength(0)-3)
+        {
+            startX = grid.GetLength(0)-3;
+        }
+        for(int x = startX; x < startX + 3; x++)
+        {
+            for(int y = 0; y < grid.GetLength(1); y++)
+            {
+                if(grid[x,y] != null)
+                {
+                    Destroy(grid[x, y].gameObject);
+                    grid[x, y] = null;
+                }
+            }
+        }
+    }
+
     public IEnumerator KeepSpawning()
     {
         float additionalTime;
@@ -114,7 +150,7 @@ public class BlockSpawnScript : MonoBehaviour
             {
                 additionalTime = 0.0f;
             }
-            yield return new WaitForSeconds(Random.Range(3.0f, 8.0f) + additionalTime);
+            yield return new WaitForSeconds(Random.Range(3.0f, 5.0f) + additionalTime);
             StartCoroutine(SpawnBlock());
         }
     }
@@ -160,6 +196,7 @@ public class BlockSpawnScript : MonoBehaviour
             child.GetComponent<SpriteRenderer>().color = randomizedCol;
             newNewCloud.GetComponent<SetSpawnPoint>().SpawnLocations.Add(child.gameObject);
         }  
+        //newNewCloud.transform.SetParent(newBlock.transform);
         newNewCloud.SetActive(true);
         
         yield return new WaitForSeconds(1f);

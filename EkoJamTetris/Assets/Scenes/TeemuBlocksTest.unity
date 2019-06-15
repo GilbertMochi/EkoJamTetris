@@ -1063,6 +1063,7 @@ MonoBehaviour:
   selectableBlocks: []
   canSelect: 0
   playerIsPlaying: {fileID: 0}
+  treePowerup: 0
 --- !u!4 &1921392884
 Transform:
   m_ObjectHideFlags: 0
