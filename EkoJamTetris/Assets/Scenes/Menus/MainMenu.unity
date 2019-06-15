@@ -2918,11 +2918,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 550547698}
-    - target: {fileID: 8656784927422423735, guid: 5464b967490c25e488daa195effa25c2,
-        type: 3}
-      propertyPath: anim
-      value: 
-      objectReference: {fileID: 1503660031}
     - target: {fileID: 8656784927422423730, guid: 5464b967490c25e488daa195effa25c2,
         type: 3}
       propertyPath: m_UiScaleMode
@@ -2943,5 +2938,10 @@ PrefabInstance:
       propertyPath: m_MatchWidthOrHeight
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8656784927422423735, guid: 5464b967490c25e488daa195effa25c2,
+        type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1503660031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5464b967490c25e488daa195effa25c2, type: 3}
