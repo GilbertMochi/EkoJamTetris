@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SceneFadeMaster
   - SimpleCar
+  - House
   layers:
   - Default
   - TransparentFX
