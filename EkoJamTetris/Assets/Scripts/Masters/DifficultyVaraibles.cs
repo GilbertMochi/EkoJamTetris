@@ -7,6 +7,11 @@ public class DifficultyVaraibles : MonoBehaviour, INotifyPropertyChanged
 {
     private static float _simpleCarCooldown;
     private static float _houseCooldown;
+    private static float _truckCooldown;
+    private static float _cowCooldown;
+    private static float _building1down;
+    private static float _factoryCooldown;
+
 
     public float SimpleCarSpawnCooldown
     {
@@ -31,6 +36,58 @@ public class DifficultyVaraibles : MonoBehaviour, INotifyPropertyChanged
         {
             _houseCooldown = value;
             RaisePropertyChanged("HouseSpawnCoolDown");
+        }
+    }
+
+public float TruckSpawnCooldown
+    {
+        get
+        {
+            return _truckCooldown;
+        }
+        set
+        {
+            _truckCooldown = value;
+            RaisePropertyChanged("TruckSpawnCooldown");
+        }
+    }
+
+public float CowSpawnCooldown
+    {
+        get
+        {
+            return _cowCooldown;
+        }
+        set
+        {
+            _cowCooldown = value;
+            RaisePropertyChanged("CowSpawnCooldown");
+        }
+    }
+
+    public float Building1SpawnCooldown
+    {
+        get
+        {
+            return _building1down;
+        }
+        set
+        {
+            _building1down = value;
+            RaisePropertyChanged("Building1SpawnCooldown");
+        }
+    }
+
+    public float FactorySpawnCooldown
+    {
+        get
+        {
+            return _factoryCooldown;
+        }
+        set
+        {
+            _factoryCooldown = value;
+            RaisePropertyChanged("FactorySpawnCooldown");
         }
     }
 
