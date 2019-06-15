@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TreeSpawn : MonoBehaviour
 {
-    public Sprite[] Trees;
+    public UnityEngine.Sprite[] Trees;
 
     // Start is called before the first frame update
     void Start()

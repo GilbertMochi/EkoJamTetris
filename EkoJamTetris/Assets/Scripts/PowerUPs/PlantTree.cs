@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlantTree : PowerUpButton
 {
+    public GameObject tree;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,5 +16,8 @@ public class PlantTree : PowerUpButton
         base.DoAction();
       //  GetComponent<ScoreAndTimer>().
       // slow Down Timer by x;
+      FindObjectOfType<BlockSpawnScript>().TreePowerup();
+      Vector2 spawnPoint = Camera.main.ViewportToWorldPoint(new Vector2(Random.Range(0.1f, 0.9f), 0.1f));
+      Instantiate(tree, spawnPoint, Quaternion.identity);
     }
 }

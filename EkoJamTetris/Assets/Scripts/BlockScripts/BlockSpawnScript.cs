@@ -61,10 +61,6 @@ public class BlockSpawnScript : MonoBehaviour
         {
             SendBlock();
         }
-        if(Input.GetKeyDown(KeyCode.F))
-        {
-            RocketPowerup(5);
-        }
     }
 
     public void GetGrid(Transform[,] theGrid)
@@ -112,14 +108,15 @@ public class BlockSpawnScript : MonoBehaviour
         return spawnPoint;
     }
 
-    public void TreePowerup(GameObject tree)
+    public void TreePowerup()
     {
         treePowerup = true;
         // Call make tree appear
     }
 
-    public void RocketPowerup(int startX)
+    public void RocketPowerup()
     {
+        int startX = Random.Range(0,grid.GetLength(0)-3);
         if(startX > grid.GetLength(0)-3)
         {
             startX = grid.GetLength(0)-3;
