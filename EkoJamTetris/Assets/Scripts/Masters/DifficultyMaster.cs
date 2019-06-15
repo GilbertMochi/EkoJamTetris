@@ -6,8 +6,12 @@ public class DifficultyMaster : MonoBehaviour
 {
     private DifficultyVaraibles difVariables;
 
-    public float startSimpleCarCooldown = 15;
+    public float startSimpleCarCooldown = 6;
     public float startHouseCooldown = 20;
+    public float startTruckCooldown = 14;
+    public float startCowCooldown = 40;
+    public float startBuilding1Cooldown = 50;
+    public float startFactoryCooldown = 60;
 
     public static DifficultyMaster DifMaster { get; private set; }
 
@@ -29,5 +33,9 @@ public class DifficultyMaster : MonoBehaviour
 
         difVariables.SimpleCarSpawnCooldown = startSimpleCarCooldown;
         difVariables.HouseSpawnCooldown = startHouseCooldown;
+        difVariables.TruckSpawnCooldown = startTruckCooldown;
+        difVariables.CowSpawnCooldown = startCowCooldown;
+        difVariables.Building1SpawnCooldown = startBuilding1Cooldown;
+        difVariables.FactorySpawnCooldown = startFactoryCooldown;
     }
 }

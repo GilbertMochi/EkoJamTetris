@@ -51,4 +51,16 @@ MonoBehaviour:
   - tag: House
     prefab: {fileID: 1300801257662792745, guid: a4183009396229d4b89e1bdeb79c554f,
       type: 3}
-    size: 10
+    size: 20
+  - tag: Truck
+    prefab: {fileID: 8624770775777143400, guid: 9aed70f8165a7854ea8ddf14b3351d18,
+      type: 3}
+    size: 20
+  - tag: Building1
+    prefab: {fileID: 1258585494449512243, guid: 081c8a7730e948549b3053fecef8847d,
+      type: 3}
+    size: 20
+  - tag: Factory
+    prefab: {fileID: 7938359876089098217, guid: ecec421406191d649b47dfbc925dd9fe,
+      type: 3}
+    size: 20
