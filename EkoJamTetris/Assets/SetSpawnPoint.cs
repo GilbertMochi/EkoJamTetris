@@ -37,14 +37,14 @@ public class SetSpawnPoint : MonoBehaviour
             return;
         if (_Index > 1 && _Index < SpawnLocations.Count)
             _SpawnLocation.transform.position = Vector3.Lerp
-                    (SpawnLocations[_Index - 1].transform.position, SpawnLocations[_Index].transform.position, Time.deltaTime / 50f);
+                    (SpawnLocations[_Index - 1].transform.position, SpawnLocations[_Index].transform.position, Time.deltaTime * 0.05f);
     }
 
     IEnumerator GoToHere()
     { 
             SmallCloudSpawner.Play();
             _SpawnLocation.transform.position = SpawnLocations[_Index].transform.position;
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(1f);
             InitialCloudSpawner.Stop();
             SpawnLocations[_Index].SetActive(true);
 

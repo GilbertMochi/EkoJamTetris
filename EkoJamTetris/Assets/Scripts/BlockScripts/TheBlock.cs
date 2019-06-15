@@ -11,6 +11,7 @@ public class TheBlock : MonoBehaviour
     public static int height = 20;
     public static Transform[,] grid = new Transform[width, height];
     List<GameObject> children = new List<GameObject>();
+    public GameObject newSmoke;
 
     void Start() 
     {
@@ -55,6 +56,7 @@ public class TheBlock : MonoBehaviour
             {
                 transform.position -= new Vector3(0, 1, 0);
                 FindObjectOfType<ScoreAndTimer>().AddScore(50);
+                ChangeSmoke();
                 FindObjectOfType<BlockSpawnScript>().canSelect = true;
                 FindObjectOfType<BlockSpawnScript>().playerIsPlaying = null;
                 AddToGrid();
@@ -63,6 +65,20 @@ public class TheBlock : MonoBehaviour
                 this.enabled = false; 
             }
             previousTime = Time.time;
+        }
+    }
+
+    void ChangeSmoke()
+    {
+        int numOfChildren = 0;
+        foreach (GameObject obj in children)
+        {
+            Destroy(obj.gameObject);
+            numOfChildren++;
+        }
+        for(int i = 0; i < numOfChildren; i++)
+        {
+            GameObject obj = Instantiate(newSmoke, transform);
         }
     }
 

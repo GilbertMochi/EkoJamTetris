@@ -129,6 +129,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationPoint: {x: 0.5, y: 0.5, z: 0}
   fallTime: 0.4
+  newSmoke: {fileID: 8411780092824135273, guid: 2336ff1536950604f830c63e5e5254b6,
+    type: 3}
 --- !u!114 &-8951676571787191754
 MonoBehaviour:
   m_ObjectHideFlags: 0

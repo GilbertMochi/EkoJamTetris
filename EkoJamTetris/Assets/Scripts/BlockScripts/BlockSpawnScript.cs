@@ -24,14 +24,19 @@ public class BlockSpawnScript : MonoBehaviour
     int currentSelection = 0;
     public bool canSelect;
     public TheBlock playerIsPlaying;
+    bool spawning = true;
+    Coroutine spawnCO;
+    // Set to true to activate tree powerup
+    public bool treePowerup;
 
     // Start is called before the first frame update
     void Start()
     {
         spawnPointsInUse = 0;
         mainCam = Camera.main;
-        StartCoroutine(SpawnBlock());
-        StartCoroutine(SpawnBlock());
+        spawnCO = StartCoroutine(KeepSpawning());
+        //StartCoroutine(SpawnBlock());
+        //StartCoroutine(SpawnBlock());
         //SpawnBlock();
     }
 
@@ -42,15 +47,15 @@ public class BlockSpawnScript : MonoBehaviour
             return;
         }
 
-        if(Input.GetButtonDown("Right"))
+        if(Input.GetButtonDown("Right") && canSelect)
         {
             NextSelection();
         }
-        else if(Input.GetButtonDown("Left"))
+        else if(Input.GetButtonDown("Left") && canSelect)
         {
             LastSelection();
         }
-        else if(Input.GetButtonDown("Up"))
+        else if(Input.GetButtonDown("Up") && canSelect)
         {
             SendBlock();
         }
@@ -96,20 +101,39 @@ public class BlockSpawnScript : MonoBehaviour
         return spawnPoint;
     }
 
+    public IEnumerator KeepSpawning()
+    {
+        float additionalTime;
+        while(spawning)
+        {
+            if(treePowerup)
+            {
+                additionalTime = 5.0f;
+            }
+            else
+            {
+                additionalTime = 0.0f;
+            }
+            yield return new WaitForSeconds(Random.Range(3.0f, 8.0f) + additionalTime);
+            StartCoroutine(SpawnBlock());
+        }
+    }
+
     public IEnumerator SpawnBlock()
     {
         List<GameObject> childClouds = new List<GameObject>();
-        if(spawnPointsInUse >= spawnPoints.Length)
+        if(spawnPointsInUse >= spawnPoints.Length-1)
         {
             yield break;
         }
 
         int randomSP = 0;
+        randomSP = Random.Range(0, spawnPoints.Length);
 
-        do
-        {
-            randomSP = Random.Range(0, spawnPoints.Length);
-        } while(spawnPoints[randomSP].inUse);
+        // do
+        // {
+        //     randomSP = Random.Range(0, spawnPoints.Length);
+        // } while(spawnPoints[randomSP].inUse);
 
         int randomized = Random.Range(0, blocks.Length);
         GameObject newBlock = Instantiate(blocks[randomized], spawnPoints[randomSP].point.position, 
@@ -124,10 +148,12 @@ public class BlockSpawnScript : MonoBehaviour
                 Random.Range(0.0f, 1.0f),
                 0.1f
             );
+        randomizedCol.a = 1.0f;
         ParticleSystem.MainModule main = newNewCloud.transform.GetChild(1).GetComponent<ParticleSystem>().main;
         main.startColor = randomizedCol;
         ParticleSystem.MainModule main2 = newNewCloud.transform.GetChild(2).GetComponent<ParticleSystem>().main;
         main2.startColor = randomizedCol;
+        randomizedCol.a = 0.1f;
         foreach (Transform child in newBlock.transform)
         {
             childClouds.Add(child.gameObject);
@@ -136,11 +162,11 @@ public class BlockSpawnScript : MonoBehaviour
         }  
         newNewCloud.SetActive(true);
         
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(1f);
         randomizedCol.a = 1.0f;
         for(int i = 0; i < childClouds.Count; i++)
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(0.5f);
             GameObject blockCloud = Instantiate(cloud, childClouds[i].transform.position, Quaternion.identity, childClouds[i].transform);
             ParticleSystem.MainModule main3 = blockCloud.GetComponent<ParticleSystem>().main;
             main3.startColor = randomizedCol;
