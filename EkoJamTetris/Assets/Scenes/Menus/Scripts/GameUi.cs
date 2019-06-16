@@ -24,8 +24,15 @@ private void Start() {
         PausePanel.SetActive(false);
     }
 
+    public void GameOver()
+    {
+        gameoverpanel.SetActive(true);
+    }
+
     public void Quit()
     {
+        FindObjectOfType<AudioManager>().Stop("Game");
+        FindObjectOfType<AudioManager>().Play("Title");
         SceneMaster.OpenMainMenu();
         PausePanel.SetActive(false);
         gameoverpanel.SetActive(false);
