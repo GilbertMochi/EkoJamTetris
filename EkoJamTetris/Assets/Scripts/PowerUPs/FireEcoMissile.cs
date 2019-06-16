@@ -16,7 +16,10 @@ public class FireEcoMissile : PowerUpButton
         base.DoAction();
         //  GetComponent<ScoreAndTimer>().
         // slow Down Timer by x;
-        FindObjectOfType<BlockSpawnScript>().RocketPowerup();
+        if(FindObjectOfType<ScoreAndTimer>().score >= Cost)
+        {
+            FindObjectOfType<BlockSpawnScript>().RocketPowerup();
+        }
     }
 }
 

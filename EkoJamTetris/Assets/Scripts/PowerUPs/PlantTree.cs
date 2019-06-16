@@ -17,10 +17,13 @@ public class PlantTree : PowerUpButton
         base.DoAction();
       //  GetComponent<ScoreAndTimer>().
       // slow Down Timer by x;
-      FindObjectOfType<BlockSpawnScript>().TreePowerup();
-      Vector2 spawnPoint = Camera.main.ViewportToWorldPoint(new Vector2(Random.Range(0.1f, 0.9f), 0.1f));
-      
-      GameObject newTree = Instantiate(tree, spawnPoint, Quaternion.identity);
-      newTree.GetComponent<Animator>().SetTrigger("Appear");
+        if(FindObjectOfType<ScoreAndTimer>().score >= Cost)
+        {
+            FindObjectOfType<BlockSpawnScript>().TreePowerup();
+            Vector2 spawnPoint = Camera.main.ViewportToWorldPoint(new Vector2(Random.Range(0.1f, 0.9f), 0.1f));
+            
+            GameObject newTree = Instantiate(tree, spawnPoint, Quaternion.identity);
+            newTree.GetComponent<Animator>().SetTrigger("Appear");
+        }
     }
 }

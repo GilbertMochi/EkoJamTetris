@@ -4,7 +4,7 @@ using TMPro;
 public class ScoreAndTimer : MonoBehaviour
 {
     float timer;
-    private int score;
+    public int score;
     public TextMeshProUGUI timerTxt;
     public TextMeshProUGUI scoreTxt;
     

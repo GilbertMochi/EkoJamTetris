@@ -56,8 +56,12 @@ public class PowerUpButton : MonoBehaviour
     
     public virtual void DoAction()
     {
-        anim.SetTrigger("GoOut");
-        Destroy(gameObject, 3f);
+        if(FindObjectOfType<ScoreAndTimer>().score >= Cost)
+        {
+            payCost();
+            anim.SetTrigger("GoOut");
+            Destroy(gameObject, 3f);
+        }
     }
 
     private void OnDisable()
