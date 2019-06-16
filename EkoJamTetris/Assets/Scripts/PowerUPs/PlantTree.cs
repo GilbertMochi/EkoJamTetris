@@ -6,8 +6,9 @@ public class PlantTree : PowerUpButton
 {
     public GameObject tree;
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
+        base.Start();
         Cost = 5000;
     }
 

@@ -22,9 +22,14 @@ public class PowerUpButton : MonoBehaviour
     public int Cost;
     public Color Color;
 
+    public void Start()
+    {
+        PowerUpManager=FindObjectOfType<PowerUpButtonManager>().gameObject;
+    }
+
     private void OnEnable()
     {
-        anim.SetTrigger("GoIn");
+       anim.SetTrigger("GoIn");
     }
 
     public void SetColor(Color c)
