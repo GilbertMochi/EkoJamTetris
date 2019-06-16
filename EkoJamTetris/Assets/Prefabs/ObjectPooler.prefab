@@ -64,3 +64,7 @@ MonoBehaviour:
     prefab: {fileID: 7938359876089098217, guid: ecec421406191d649b47dfbc925dd9fe,
       type: 3}
     size: 20
+  - tag: Cows
+    prefab: {fileID: 4897923706666792964, guid: 30b277eb24541944bb26877e4ca33455,
+      type: 3}
+    size: 20

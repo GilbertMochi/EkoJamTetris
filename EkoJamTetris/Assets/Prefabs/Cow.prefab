@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4897923706666792967}
   m_Layer: 0
   m_Name: Cow
-  m_TagString: SimpleCar
+  m_TagString: Cow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa5def3416e3c5c4a8d88f62e52c0b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceX: 3
+  forceX: 1.5
 --- !u!50 &4897923706666792961
 Rigidbody2D:
   serializedVersion: 4

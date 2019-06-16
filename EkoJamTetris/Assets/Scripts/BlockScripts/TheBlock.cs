@@ -14,13 +14,17 @@ public class TheBlock : MonoBehaviour
     List<GameObject> children = new List<GameObject>();
     public GameObject newSmoke;
 
-    void Start() 
+    public GameObject gameOverPanel;
+
+    void Start()
     {
-        if(!ValidMove())
+        if (!ValidMove())
         {
             // Game over
+            gameOverPanel.SetActive(true);
+            SceneMaster.PauseGame();
         }
-        if(firstRun)
+        if (firstRun)
         {
             FindObjectOfType<BlockSpawnScript>().GetGrid(grid);
             firstRun = false;
@@ -29,35 +33,35 @@ public class TheBlock : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetButtonDown("Right"))
+        if (Input.GetButtonDown("Right"))
         {
             transform.position += new Vector3(1, 0, 0);
-            if(!ValidMove())
+            if (!ValidMove())
             {
                 transform.position -= new Vector3(1, 0, 0);
             }
         }
-        else if(Input.GetButtonDown("Left"))
+        else if (Input.GetButtonDown("Left"))
         {
             transform.position += new Vector3(-1, 0, 0);
-            if(!ValidMove())
+            if (!ValidMove())
             {
                 transform.position -= new Vector3(-1, 0, 0);
             }
         }
-        else if(Input.GetButtonDown("Rotate"))
+        else if (Input.GetButtonDown("Rotate"))
         {
             transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), 90);
-            if(!ValidMove())
+            if (!ValidMove())
             {
                 transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), -90);
             }
         }
 
-        if(Time.time - previousTime > (Input.GetButton("Up") ? fallTime / 10 : fallTime))
+        if (Time.time - previousTime > (Input.GetButton("Up") ? fallTime / 10 : fallTime))
         {
             transform.position += new Vector3(0, 1, 0);
-            if(!ValidMove())
+            if (!ValidMove())
             {
                 transform.position -= new Vector3(0, 1, 0);
                 FindObjectOfType<ScoreAndTimer>().AddScore(50);
@@ -67,7 +71,7 @@ public class TheBlock : MonoBehaviour
                 AddToGrid();
                 CheckForLines();
                 FindObjectOfType<BlockSpawnScript>().SpawnBlock();
-                this.enabled = false; 
+                this.enabled = false;
             }
             previousTime = Time.time;
         }
@@ -81,7 +85,7 @@ public class TheBlock : MonoBehaviour
             Destroy(obj.gameObject);
             numOfChildren++;
         }
-        for(int i = 0; i < numOfChildren; i++)
+        for (int i = 0; i < numOfChildren; i++)
         {
             GameObject obj = Instantiate(newSmoke, transform);
         }
@@ -94,13 +98,13 @@ public class TheBlock : MonoBehaviour
             int roundedX = Mathf.RoundToInt(children.transform.position.x);
             int roundedY = Mathf.RoundToInt(children.transform.position.y);
 
-            if(roundedX < 0 || roundedX >= width || roundedY < 0 || roundedY >= height)
+            if (roundedX < 0 || roundedX >= width || roundedY < 0 || roundedY >= height)
             {
                 return false;
             }
-            
 
-            if(grid[roundedX, roundedY] != null)
+
+            if (grid[roundedX, roundedY] != null)
             {
                 return false;
             }
@@ -111,9 +115,9 @@ public class TheBlock : MonoBehaviour
 
     public void CheckForLines()
     {
-        for(int i = height - 1; i >= 0; i--)
+        for (int i = height - 1; i >= 0; i--)
         {
-            if(HasLine(i))
+            if (HasLine(i))
             {
                 DeleteLine(i);
                 RowDown(i);
@@ -124,9 +128,9 @@ public class TheBlock : MonoBehaviour
 
     public bool HasLine(int i)
     {
-        for(int j = 0; j < width; j++)
+        for (int j = 0; j < width; j++)
         {
-            if(grid[j, i] == null)
+            if (grid[j, i] == null)
             {
                 return false;
             }
@@ -137,7 +141,7 @@ public class TheBlock : MonoBehaviour
 
     public void DeleteLine(int i)
     {
-        for(int j = 0; j < width; j++)
+        for (int j = 0; j < width; j++)
         {
             Destroy(grid[j, i].gameObject);
             grid[j, i] = null;
@@ -146,14 +150,14 @@ public class TheBlock : MonoBehaviour
 
     public void RowDown(int i)
     {
-        for(int j = 0; j < width; j++)
+        for (int j = 0; j < width; j++)
         {
             int index = i;
-            while(grid[j, index-1] != null)
+            while (grid[j, index - 1] != null)
             {
-                grid[j, index-1].transform.position += new Vector3(0, 1, 0);
+                grid[j, index - 1].transform.position += new Vector3(0, 1, 0);
                 index--;
-            }   
+            }
         }
 
         // for(int y = height; y >= i; y--)
@@ -185,20 +189,20 @@ public class TheBlock : MonoBehaviour
     public void OnDrawGizmos()
     {
         // Draw a yellow sphere at the transform's position
-        for(int i = 0; i < width; i++)
+        for (int i = 0; i < width; i++)
         {
-            for(int j = 0; j < height; j++)
+            for (int j = 0; j < height; j++)
             {
-                if(grid[i, j] != null)
+                if (grid[i, j] != null)
                 {
                     Gizmos.color = Color.green;
                     Gizmos.DrawSphere(grid[i, j].position, 0.5f);
                 }
             }
         }
-        
+
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(rotationPoint+transform.position, 0.2f);
+        Gizmos.DrawSphere(rotationPoint + transform.position, 0.2f);
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(new Vector3(width, height, 0f), 0.2f);

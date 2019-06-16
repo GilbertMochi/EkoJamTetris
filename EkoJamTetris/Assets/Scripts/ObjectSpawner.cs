@@ -116,7 +116,7 @@ public class ObjectSpawner : MonoBehaviour
 
         while (true)//loop infinitely
         {
-            yield return new WaitForSeconds(truckCooldown);//wait for the cooldown to be over
+            yield return new WaitForSeconds(cowCooldown);//wait for the cooldown to be over
             //Debug.Log("simple car spawned");
             OP.SpawnFromPool("Cows", carSpawnPoints[Random.Range(0, carSpawnPoints.Length)].position, transform.rotation);//spawn next car
         }
