@@ -7,8 +7,8 @@ public class TheBlock : MonoBehaviour
     public Vector3 rotationPoint;
     private float previousTime;
     public float fallTime = 0.8f;
-    public static int width = 22;
-    public static int height = 20;
+    public static int width = 19;
+    public static int height = 23;
     public static Transform[,] grid = new Transform[width, height];
     public static bool firstRun = true;
     List<GameObject> children = new List<GameObject>();
