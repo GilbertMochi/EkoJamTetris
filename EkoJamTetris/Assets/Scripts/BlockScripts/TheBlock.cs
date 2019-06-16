@@ -14,14 +14,12 @@ public class TheBlock : MonoBehaviour
     List<GameObject> children = new List<GameObject>();
     public GameObject newSmoke;
 
-    public GameObject gameOverPanel;
-
     void Start()
     {
         if (!ValidMove())
         {
             // Game over
-            gameOverPanel.SetActive(true);
+            FindObjectOfType<GameUi>().GameOver();
             SceneMaster.PauseGame();
         }
         if (firstRun)

@@ -15,6 +15,10 @@ public class ScoreAndTimer : MonoBehaviour
 
     void Update() 
     {
+        if(Input.GetKeyDown(KeyCode.T))
+        {
+            AddScore(5000);
+        }
         timer += Time.deltaTime;
         timerTxt.text = timer.ToString("F2");
     }

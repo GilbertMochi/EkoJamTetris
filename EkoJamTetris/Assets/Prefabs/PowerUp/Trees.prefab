@@ -53,8 +53,7 @@ MonoBehaviour:
   Trees:
   - {fileID: 21300000, guid: 5b6a0e0f3070286429f2320dcd719e17, type: 3}
   - {fileID: 21300000, guid: 310e41737d1430048952534a2abe40b6, type: 3}
-  - {fileID: 21300000, guid: 566a4180cc47bb341a50c7359da0ae63, type: 3}
-  CurrentImage: {fileID: 0}
+  - {fileID: 21300000, guid: 3f08d26ae2676324a99a0ca53bb46baa, type: 3}
 --- !u!222 &5953973514402568654
 CanvasRenderer:
   m_ObjectHideFlags: 0
