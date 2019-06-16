@@ -19,6 +19,8 @@ public class PlantTree : PowerUpButton
       // slow Down Timer by x;
       FindObjectOfType<BlockSpawnScript>().TreePowerup();
       Vector2 spawnPoint = Camera.main.ViewportToWorldPoint(new Vector2(Random.Range(0.1f, 0.9f), 0.1f));
-      Instantiate(tree, spawnPoint, Quaternion.identity);
+      
+      GameObject newTree = Instantiate(tree, spawnPoint, Quaternion.identity);
+      newTree.GetComponent<Animator>().SetTrigger("Appear");
     }
 }
