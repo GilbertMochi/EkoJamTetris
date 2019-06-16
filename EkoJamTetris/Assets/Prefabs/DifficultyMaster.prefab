@@ -43,5 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7552bd0643673040afa23567bb8d197, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSimpleCarCooldown: 6
-  startHouseCooldown: 25
+  startSimpleCarCooldown: 15
+  startHouseCooldown: 20
+  startTruckCooldown: 14
+  startCowCooldown: 30
+  startBuilding1Cooldown: 40
+  startFactoryCooldown: 50

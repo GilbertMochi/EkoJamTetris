@@ -6,9 +6,11 @@ public class GameUi : MonoBehaviour
 {
 
 public GameObject PausePanel;
+public GameObject gameoverpanel;
 
 private void Start() {
     PausePanel.SetActive(false);
+    gameoverpanel.SetActive(false);
 }
     // Update is called once per frame
     public void Pause()
@@ -26,5 +28,6 @@ private void Start() {
     {
         SceneMaster.OpenMainMenu();
         PausePanel.SetActive(false);
+        gameoverpanel.SetActive(false);
     }
 }
