@@ -31,6 +31,7 @@ public class Sprite : MonoBehaviour
             facingRight = false;
             flipSprite();
         }
+        lastPosX = transform.position.x;
     }
 
     //scale the object so that it's facing the other direction

@@ -34,7 +34,7 @@ public class ObjectSpawner : MonoBehaviour
         StartCoroutine(StartSpawningFactories());
         StartCoroutine(StartSpawningBulding1());
         StartCoroutine(StartSpawningTrucks());
-        //StartCoroutine(StartSpawningCows());
+        StartCoroutine(StartSpawningCows());
     }
 
     // Update is called once per frame
@@ -111,14 +111,14 @@ public class ObjectSpawner : MonoBehaviour
 
     IEnumerator StartSpawningCows()
     {
-        yield return new WaitForSeconds(26);//wait for 2 seconds
-        OP.SpawnFromPool("Cow", carSpawnPoints[Random.Range(0, carSpawnPoints.Length)].position, transform.rotation);//spawn first car
+        yield return new WaitForSeconds(6);//wait for 2 seconds
+        OP.SpawnFromPool("Cows", carSpawnPoints[Random.Range(0, carSpawnPoints.Length)].position, transform.rotation);//spawn first car
 
         while (true)//loop infinitely
         {
-            yield return new WaitForSeconds(cowCooldown);//wait for the cooldown to be over
+            yield return new WaitForSeconds(truckCooldown);//wait for the cooldown to be over
             //Debug.Log("simple car spawned");
-            OP.SpawnFromPool("Cow", carSpawnPoints[Random.Range(0, carSpawnPoints.Length)].position, transform.rotation);//spawn next car
+            OP.SpawnFromPool("Cows", carSpawnPoints[Random.Range(0, carSpawnPoints.Length)].position, transform.rotation);//spawn next car
         }
     }
 
@@ -137,7 +137,7 @@ public class ObjectSpawner : MonoBehaviour
     {
         Vector2 posXLeftEdge = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
         Vector2 posXRightEdge = Camera.main.ViewportToWorldPoint(new Vector2(1, 0));
-        Vector2 pos = new Vector2(Random.Range(posXLeftEdge.x, posXRightEdge.x), 0);
+        Vector2 pos = new Vector2(Random.Range(posXLeftEdge.x, posXRightEdge.x), 0.7f);
         Debug.Log("House spawn pos: " + pos);
         return pos;
     }
