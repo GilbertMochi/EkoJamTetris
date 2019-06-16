@@ -30,6 +30,11 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
+            s.source.playOnAwake = s.playOnAwake;
+            if(s.source.playOnAwake == true)
+            {
+                s.source.Play();
+            } 
         }
     }
 
@@ -43,5 +48,12 @@ public class AudioManager : MonoBehaviour
         }
 
         s.source.Play();
+    }
+
+    public void Stop(string name)
+    {
+		
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        s.source.Stop();
     }
 }

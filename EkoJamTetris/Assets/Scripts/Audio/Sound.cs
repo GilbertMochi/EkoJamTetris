@@ -12,6 +12,8 @@ public class Sound
     public float pitch;
     public string name;
 
+    public bool playOnAwake;
+
     public bool loop;
 
     [HideInInspector]
