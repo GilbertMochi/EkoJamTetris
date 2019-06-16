@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4897923706666792960}
   - component: {fileID: 4897923706666792961}
   - component: {fileID: 4897923706666792966}
-  - component: {fileID: 4897923706666792967}
+  - component: {fileID: 2035721431}
   m_Layer: 0
   m_Name: Cow
   m_TagString: Cow
@@ -95,7 +95,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8350061, y: 0.57627237}
   m_EdgeRadius: 0
---- !u!95 &4897923706666792967
+--- !u!95 &2035721431
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -105,7 +105,7 @@ Animator:
   m_GameObject: {fileID: 4897923706666792964}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 566daa578913a0e458175efaa85b74fc, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0524d07ca1604b04db313e4fee856c1d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
